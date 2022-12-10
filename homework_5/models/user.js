@@ -43,7 +43,7 @@ const userSchema = new Schema( // схема моделі contact
             enum: ["starter", "pro", "business"],
             default: "starter"
         },
-        avatarImg: {
+        avatarURL: {
             type: String,
             required: [true, 'Avatar is required'],
         },

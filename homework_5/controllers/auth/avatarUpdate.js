@@ -18,15 +18,14 @@ const avatarUpdate = async (req, res) => {
         });
 
         await fs.rename(tmpPath, uploadPath); // переносимо ф-л з tmpPath до uploadPath
-        const avatarImg = path.join("avatar", newFileName); // новий шлях до ф-лу (аватрки)
+        const avatarURL = "//avatars/" + `${newFileName}`; // новий шлях до ф-лу (аватрки)
 
-        await User.findByIdAndUpdate(_id, { avatarImg }); //обновлюємо базу
-        res.json({ avatarImg });
+        await User.findByIdAndUpdate(_id, { avatarURL }); //обновлюємо базу
+        res.json({ avatarURL });
     } catch (error) {
         await fs.unlink(req.file.path); // удаляє шлях до ф-ла із запиту
         throw error;
     }
-
 }
 
 module.exports = avatarUpdate;

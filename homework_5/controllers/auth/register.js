@@ -15,9 +15,9 @@ const register = async (req, res) => {
         throw createError(409, `Email ${email} in use`);
     }
 
-    const avatarImg = gravatar.url(email);
+    const avatarURL = gravatar.url(email);
     const hashPassword = await bcrypt.hash(password, 10); // хешування пароля
-    const result = await User.create({ ...req.body, password: hashPassword, avatarImg }); // створення нового user в базі
+    const result = await User.create({ ...req.body, password: hashPassword, avatarURL }); // створення нового user в базі
     res.status(201).json({
         email: result.email,
     });
