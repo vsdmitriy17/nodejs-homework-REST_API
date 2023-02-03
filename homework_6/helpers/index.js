@@ -1,9 +1,9 @@
 const createError = require("./createError");
-const ctrlWrapper = require("./ctrlWrapper");
+const controllerWrapper = require("./controllerWrapper");
 const sendVerifyMail = require("./sendVerifyMail");
 
 module.exports = {
     createError,
-    ctrlWrapper,
+    controllerWrapper,
     sendVerifyMail,
 };

@@ -1,22 +1,4 @@
 const { Schema, model } = require('mongoose');
-const Joi = require("joi");
-
-const contactAddSchema = Joi.object({ // бібліотека для перевірки - схема для перевірки (як propTypes)
-    name: Joi.string().required(),
-    email: Joi.string(),
-    phone: Joi.string(),
-    favorite: Joi.boolean(),
-    // owner: Joi.ObjectId(),
-});
-
-const contactUpdateFavoriteSchema = Joi.object({ // бібліотека для перевірки - схема для перевірки (як propTypes)
-    favorite: Joi.boolean().required(),
-});
-
-const schemas = {
-    add: contactAddSchema,
-    updateFavorite: contactUpdateFavoriteSchema,
-}
 
 const contactSchema = new Schema( // схема моделі contact
     { 
@@ -51,5 +33,4 @@ const Contact = model("contact", contactSchema);
 
 module.exports = {
     Contact,
-    schemas,
 };

@@ -1,6 +1,6 @@
 const fs = require('fs').promises;
 const path = require("path");
-const { User, schemas } = require("../../models/user");
+const { User } = require("../../models/user");
 
 const avatarsPath = path.join(__dirname, "../../", "public/avatars"); // шлях до папки в котрій зберігаємо аватарки
 const Jimp = require("jimp");

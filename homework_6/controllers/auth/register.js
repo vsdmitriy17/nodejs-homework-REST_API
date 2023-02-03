@@ -1,15 +1,10 @@
-const { User, schemas } = require("../../models/user");
+const { User } = require("../../models/user");
 const { createError, sendVerifyMail } = require("../../helpers");
 const bcrypt = require("bcrypt"); 
 const gravatar = require("gravatar"); // бібл. для генерування аватарок
 const { v4 } = require("uuid");
 
 const register = async (req, res) => {
-    const { error } = schemas.register.validate(req.body); // перевырка об'єкту який додаємо (req.body), валідація
-    if (error) {
-        throw createError(400, error.message);
-    }
-
     const { email, password } = req.body;
     const user = await User.findOne({ email }); // Перевірка на наявність такого email в базі, агументом до методу create() - повинен бути об'єкт
     if (user) {

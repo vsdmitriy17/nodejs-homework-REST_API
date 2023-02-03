@@ -1,4 +1,4 @@
-const { User, schemas } = require("../../models/user");
+const { User } = require("../../models/user");
 const { createError } = require("../../helpers");
 
 async function verifyMail(req, res, next) {
